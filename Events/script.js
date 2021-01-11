@@ -10,6 +10,7 @@
     * key
         - up
         - down
+    * blur
 */
 
 console.log("This is event");
