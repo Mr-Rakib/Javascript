@@ -34,9 +34,13 @@
       <h2 class="container">ADD YOUR MEMORIES</h2>
         <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Add a note</h5>
+              <div class="form-group">
+                <label>Title</label>
+                <input type="email" class="form-control" id="noteTitle" aria-describedby="emailHelp" placeholder="Enter title">
+              </div>
               <div class="mb-3">
-                <textarea class="form-control" value= "" id="noteText" rows="3"></textarea>
+                <label>Note</label>
+                <textarea class="form-control" value= "" id="noteText" rows="3" placeholder="Add note"></textarea>
               </div>
               <button class="btn btn-primary" id="addNote">Add Note</button>
             </div>

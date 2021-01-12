@@ -4,6 +4,12 @@ function Start() {
     document.getElementById("addNote").addEventListener("click", AddNote);
     document.getElementById("searchText").addEventListener("input", Search);
 }
+//Note Object
+let Note = function(noteTitle, noteText){
+    this.title= noteTitle;
+    this.text = noteText;
+}
+
 function GetAllData() {
     let noteStorage = localStorage.getItem("notes");
     let notelist = (noteStorage == null) ? [] : JSON.parse(noteStorage);
@@ -11,13 +17,18 @@ function GetAllData() {
 }
 
 function AddNote() {
+    let title = document.getElementById("noteTitle");
     let text = document.getElementById("noteText");
-    if (text.value.trim() ?? null != null) {
+    if (text.value.trim() ?? null != null & title.value.trim() ?? null != null) {
         let notelist = GetAllData();
-
-        notelist.push(text.value);
+        let note = new Note(title.value, text.value);
+        notelist.push(note);
         localStorage.setItem("notes", JSON.stringify(notelist));
-        text.value = '';
+        
+        console.warn(title.value, text.value);
+        title.value = "";
+        text.value = "";
+        console.warn(title, text);
         ShowAllData();
     }
     else {
@@ -34,8 +45,8 @@ function ShowAllData() {
             html +=
         `<div class="noteCard card mx-2 my-2" style="width: 18rem;">
             <div class="card-body">
-              <h5 class="card-title">Card ${index + 1}</h5>
-              <p class="card-text">${element}</p>
+              <h5 class="card-title">${element.title}</h5>
+              <p class="card-text">${element.text}</p>
               <button class="btn btn-danger" id ='${index}' onclick= 'DeleteNote(this.id)' >Delete</button>
             </div>
         </div>
@@ -64,8 +75,9 @@ function Search()
     let text = document.getElementById("searchText").value.toLowerCase();
     let noteCards = document.getElementsByClassName("noteCard");
     Array.from(noteCards).forEach((element)=>{
-        let cardP = element.getElementsByTagName("p")[0].innerText.toLowerCase();
-        if(cardP.includes(text)){
+        let cardTitle = element.getElementsByClassName("card-title")[0].innerText.toLowerCase();
+        let cardText = element.getElementsByClassName("card-text")[0].innerText.toLowerCase();
+        if(cardTitle.includes(text) || cardText.includes(text)){
             element.style.display= "block";
         }else{
             element.style.display= "none";
