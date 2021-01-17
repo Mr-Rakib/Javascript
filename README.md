@@ -13,3 +13,12 @@
 	* Elements
 	* Local storage
 	* Session storage
+	
+	* ES6
+	* Protoype
+	* Object Literals
+	* Class
+	* Ajax
+	
+	* Exercises
+	* Projects
