@@ -19,6 +19,8 @@
 	* Object Literals
 	* Class
 	* Ajax
+	* Fetch
+	* Promises
 	
-	* Exercises
-	* Projects
+	* Exercises - 2
+	* Projects - 3

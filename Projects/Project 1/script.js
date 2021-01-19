@@ -75,6 +75,7 @@ function Search()
     let text = document.getElementById("searchText").value.toLowerCase();
     let noteCards = document.getElementsByClassName("noteCard");
     Array.from(noteCards).forEach((element)=>{
+
         let cardTitle = element.getElementsByClassName("card-title")[0].innerText.toLowerCase();
         let cardText = element.getElementsByClassName("card-text")[0].innerText.toLowerCase();
         if(cardTitle.includes(text) || cardText.includes(text)){
