@@ -3,6 +3,7 @@ function Start() {
     FetchAllNewsAjax();
     document.getElementById('top-news-btn').addEventListener('click', AllTopNewsAjax);
     document.getElementById('sports-news-btn').addEventListener('click', AllSportsNewsAjax);
+    document.getElementById('github-users-btn').addEventListener('click',  AllGitHubUsersAjax);
     document.getElementById('search').addEventListener('input', SearchAllItems);
 }
 
@@ -62,6 +63,22 @@ function AllSportsNewsAjax() {
         .catch(error => console.error("Some Issue Happen"));
 }
 
+function AllGitHubUsersAjax() {
+    //ES6 Ajax call
+    SetHeader("Git USERS");
+    //const key = '77456a82ee20405b9e32f7998e3e91bf';
+    let baseUrl = `https://api.github.com/users`;
+
+    fetch(baseUrl).then(response => response.json())
+        .then(data => {
+            data.forEach((element, index) => {
+                AddUsersDetails(element, index);
+                //console.log(element)
+            });
+        })
+        .catch(error => console.error(error));
+}
+
 function SetHeader(mainHeader) {
     document.getElementById('main-header').innerHTML = mainHeader;
     document.getElementById('news-container').innerHTML = '';
@@ -88,9 +105,9 @@ function AddNews(news, index) {
     let newsContainer = document.getElementById('news-container');
     let newsBody =
         `
-    <div class="news-card col-sm-4 p-2">
+    <div class="news-card col-sm-3 p-2">
         <div class="card">
-            <img class="card-img-top" src="${news.urlToImage ?? " images/avatar.png"}" alt="Card image cap" style="height: 35vh;">
+            <img class="card-img-top" src="${news.urlToImage ?? " images/avatar.png"}" alt="Card image cap" style="height: 30vh;">
             <div class="card-body">
                 <div id="heading-${index}">
                     <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${index}"
@@ -106,6 +123,44 @@ function AddNews(news, index) {
                         ${news.description}
                     </p>
                     <a href="${news.url}" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+    `;
+    newsContainer.innerHTML += newsBody;
+}
+
+
+function AddUsersDetails(user, index) {
+
+    console.log(user)
+
+    let newsContainer = document.getElementById('news-container');
+    let newsBody =
+        `
+    <div class="news-card col-sm-2 p-2">
+        <div class="card">
+            <img class="card-img-top" src="${user.avatar_url ?? " images/avatar.png"}" alt="Card image cap" style="height: 35vh;">
+            <div class="card-body">
+                <div id="heading-${index}">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-${index}"
+                        aria-expanded="true" aria-controls="collapse-${index}">
+                        <h5 class="card-title text-danger">${user.type ?? "User"}</h5>
+                    </button>
+                </div>
+                <p class="card-header font-weight-bold">${user.login ?? "User"}</p>
+                <div id="collapse-${index}" class="collapse" aria-labelledby="heading-${index}"
+                    data-parent="#news-container">
+                    <div class="card-text text-justify">
+                        <a class="small" href ="${user.organizations_url}"target="_blank">${user.organizations_url}</a>
+                        <br/>
+                        <a class="small" href ="${user.followers_url}"target="_blank">${user.followers_url}</a>
+                        <br/>
+                        <a class="small" href ="${user.events_url}"target="_blank">${user.events_url}</a>
+                    </div>
+                    <br>
+                    <a class="small font-weight-bold text-danger"  href="${user.html_url}" target="_blank">Show Profile</a>
                 </div>
             </div>
         </div>
