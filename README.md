@@ -22,5 +22,14 @@
 	* Fetch
 	* Promises
 	
+	* Regular Expression
+	* Error Handling
+	* Iterators, Generators
+	* For in/of loops
+	* Map
+	* Set
+	* Symbols
+	* Destructuring
+	
 	* Exercises - 2
-	* Projects - 3
+	* Projects - 4
