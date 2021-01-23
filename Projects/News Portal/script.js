@@ -133,9 +133,6 @@ function AddNews(news, index) {
 
 
 function AddUsersDetails(user, index) {
-
-    console.log(user)
-
     let newsContainer = document.getElementById('news-container');
     let newsBody =
         `

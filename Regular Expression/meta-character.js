@@ -35,8 +35,6 @@
 //email validation
 let regex = /^[a-z]{1}([\w0-9\.]){0,30}@([a-zA-Z0-9]){3,20}\.[a-z]{2,10}$/;
 // let str = 'hello i am md Rakib, working as a software developer at match wheel limited. rakib is a good boy '
-let str = 'mrhasa.334_y@gmail.com';
+let str = 'mrhasa.334@gmail.com';
 console.log(regex);
 console.log(regex.exec(str));
-
-
