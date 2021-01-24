@@ -1,6 +1,6 @@
 		
    	Javascript Tutorials
-	![Alt Text](https://raw.githubusercontent.com/Mr-Rakib/Javascript/master/Certification/Javascript.png?raw=true)
+![Alt Text](https://raw.githubusercontent.com/Mr-Rakib/Javascript/master/Certification/Javascript.png?raw=true)
 	
 	* Syntext
 	* Type conversion
@@ -34,3 +34,4 @@
 	
 	* Exercises - 2
 	* Projects - 4
+	
