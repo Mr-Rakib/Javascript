@@ -1,0 +1,52 @@
+{
+    "data":[
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Academic/Professional",
+            "duration" : "2 months",
+            "price" : 10000
+        },
+        {
+            "course" : "C++",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        },
+        {
+            "course" : "C",
+            "level" : "Beginner",
+            "duration" : "2 months",
+            "price" : 8000
+        }
+    ]
+}
